@@ -1,0 +1,614 @@
+/* TEMPORARY FIX - Show all content */
+body * {
+    opacity: 1 !important;
+    transform: none !important;
+}
+/* ================================
+   ANIMATION KEYFRAMES
+   ================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ================================
+   FADE-IN CLASSES
+   ================================ */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+/* ================================
+   STAGGER DELAYS
+   ================================ */
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ================================
+   HERO ANIMATIONS
+   ================================ */
+
+.hero-title .word {
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title .word:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.hero-title .word:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-brief-note {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.scroll-indicator {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/* ================================
+   SCROLL REVEAL ANIMATIONS
+   ================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================================
+   SECTION HEADER ANIMATIONS
+   ================================ */
+
+.section-number {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.section-number.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.1s;
+}
+
+.section-title.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+    transition-delay: 0.2s;
+}
+
+.section-subtitle.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   JOURNEY STEP ANIMATIONS
+   ================================ */
+
+.journey-step {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-step.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.journey-step:nth-child(1) { transition-delay: 0.1s; }
+.journey-step:nth-child(2) { transition-delay: 0.2s; }
+.journey-step:nth-child(3) { transition-delay: 0.3s; }
+.journey-step:nth-child(4) { transition-delay: 0.4s; }
+
+/* ================================
+   PROJECT CARD ANIMATIONS
+   ================================ */
+
+.project-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.2s; }
+.project-card:nth-child(3) { transition-delay: 0.3s; }
+.project-card:nth-child(4) { transition-delay: 0.4s; }
+
+/* ================================
+   MODAL ANIMATIONS
+   ================================ */
+
+.project-modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.project-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.project-modal.active .modal-content {
+    animation: modalSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.brief-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.project-modal.active .brief-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-modal.active .brief-section:nth-child(1) { transition-delay: 0.1s; }
+.project-modal.active .brief-section:nth-child(2) { transition-delay: 0.2s; }
+.project-modal.active .brief-section:nth-child(3) { transition-delay: 0.3s; }
+.project-modal.active .brief-section:nth-child(4) { transition-delay: 0.4s; }
+.project-modal.active .brief-section:nth-child(5) { transition-delay: 0.5s; }
+.project-modal.active .brief-section:nth-child(6) { transition-delay: 0.6s; }
+
+/* ================================
+   CONTACT LINK ANIMATIONS
+   ================================ */
+
+.contact-link {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-link.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-link:nth-child(1) { transition-delay: 0.1s; }
+.contact-link:nth-child(2) { transition-delay: 0.2s; }
+.contact-link:nth-child(3) { transition-delay: 0.3s; }
+
+/* ================================
+   HIGHLIGHT EFFECTS
+   ================================ */
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--accent);
+    opacity: 0.3;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight.active::after {
+    transform: scaleX(1);
+}
+
+/* ================================
+   LARGE TEXT ANIMATION
+   ================================ */
+
+.large-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.large-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   NAVIGATION ANIMATIONS
+   ================================ */
+
+.nav {
+    transform: translateY(-100%);
+    animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes navSlideDown {
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   LOADING ANIMATIONS
+   ================================ */
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-primary);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--secondary);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+   HOVER STATE ANIMATIONS
+   ================================ */
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(44, 102, 110, 0.15);
+}
+
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* ================================
+   TEXT REVEAL ANIMATIONS
+   ================================ */
+
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-reveal.active span {
+    transform: translateY(0);
+}
+
+/* ================================
+   CURSOR HOVER STATES
+   ================================ */
+
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower,
+.project-card:hover ~ .cursor-follower {
+    width: 60px;
+    height: 60px;
+}
+
+/* ================================
+   SMOOTH ENTRANCE
+   ================================ */
+
+body {
+    opacity: 0;
+    animation: bodyFadeIn 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes bodyFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ================================
+   PARALLAX EFFECTS (Light)
+   ================================ */
+
+.parallax {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================================
+   GRADIENT ANIMATIONS
+   ================================ */
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* ================================
+   BUTTON RIPPLE EFFECT
+   ================================ */
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ================================
+   UNDERLINE ANIMATION
+   ================================ */
+
+.animated-underline {
+    position: relative;
+}
+
+.animated-underline::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.animated-underline:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
