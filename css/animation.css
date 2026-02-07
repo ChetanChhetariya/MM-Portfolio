@@ -1,8 +1,3 @@
-/* TEMPORARY FIX - Show all content */
-body * {
-    opacity: 1 !important;
-    transform: none !important;
-}
 /* ================================
    ANIMATION KEYFRAMES
    ================================ */
