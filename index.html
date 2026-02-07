@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -22,6 +22,19 @@
 </head>
 <body>
     
+    <!-- FULL SCREEN LOADER -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <svg class="loader-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path class="logo-path" d="M100,40 L140,80 L120,120 L100,100 L80,120 L60,80 Z" 
+                      stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="logo-circle" cx="100" cy="100" r="60" 
+                        stroke="white" stroke-width="3" fill="none" stroke-dasharray="10 5"/>
+            </svg>
+            <div class="loader-text">MM</div>
+        </div>
+    </div>
+    
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
@@ -32,6 +45,14 @@
             <div class="nav-logo">
                 <a href="#hero">MM</a>
             </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#work" class="nav-link">Work</a>
@@ -45,21 +66,31 @@
     <section id="hero" class="hero section">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-label fade-in">
+                <div class="hero-label">
                     <span>Portfolio</span>
                     <span class="year">2026</span>
                 </div>
-                <h1 class="hero-title">
-                    <span class="word">Mitasha</span>
-                    <span class="word">Mehta</span>
-                </h1>
+                
+                <!-- Large Typography with Embedded Images -->
+                <div class="hero-title-container">
+                    <h1 class="hero-title">
+                        <span class="word-with-accent">
+                            <span class="word-main">Mitasha</span>
+                            <span class="word-accent">the</span>
+                        </span>
+                        <span class="word">Mehta</span>
+                    </h1>
+                </div>
+                
                 <div class="hero-subtitle">
                     <p class="tagline">Advertising creative shaped by <span class="highlight">design</span>, driven by <span class="highlight">strategy</span>, grounded in <span class="highlight">storytelling</span>.</p>
                 </div>
+                
                 <div class="hero-brief-note">
                     <p>This portfolio is structured like a creative brief—<br>each section answers a clear question, showing how I think and build ideas.</p>
                 </div>
             </div>
+            
             <div class="scroll-indicator">
                 <span>Scroll to explore</span>
                 <div class="scroll-line"></div>
@@ -72,7 +103,12 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">01</span>
-                <h2 class="section-title">The Background</h2>
+                <h2 class="section-title">
+                    <span class="title-with-accent">
+                        <span class="title-main">The Background</span>
+                        <span class="title-accent">my</span>
+                    </span>
+                </h2>
                 <p class="section-subtitle">How I got here</p>
             </div>
             
@@ -283,6 +319,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/loader.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/main.js"></script>

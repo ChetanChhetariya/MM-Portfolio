@@ -1,11 +1,13 @@
 // ================================
-// SCROLL ANIMATIONS WITH GSAP
+// EXTREME SCROLL ANIMATIONS
 // ================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // Register GSAP ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
     
     // ================================
     // SCROLL PROGRESS BAR
@@ -13,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', () => {
         const scrollProgress = document.querySelector('.scroll-progress');
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrolled = (window.scrollY / scrollHeight) * 100;
-        scrollProgress.style.width = scrolled + '%';
+        if (scrollProgress) {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        }
     });
     
     // ================================
@@ -38,251 +42,235 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ================================
-    // SECTION HEADERS ANIMATION
+    // INTERSECTION OBSERVER - REVEALS
     // ================================
     
-    gsap.utils.toArray('.section-header').forEach(header => {
-        gsap.from(header.querySelector('.section-number'), {
-            scrollTrigger: {
-                trigger: header,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            x: -50,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
         });
+    }, observerOptions);
+    
+    // ================================
+    // SECTION HEADERS
+    // ================================
+    
+    document.querySelectorAll('.section-header').forEach(header => {
+        revealObserver.observe(header);
         
-        gsap.from(header.querySelector('.section-title'), {
-            scrollTrigger: {
-                trigger: header,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.2,
-            ease: 'power3.out'
-        });
+        const number = header.querySelector('.section-number');
+        const title = header.querySelector('.section-title');
+        const subtitle = header.querySelector('.section-subtitle');
         
-        gsap.from(header.querySelector('.section-subtitle'), {
-            scrollTrigger: {
-                trigger: header,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            delay: 0.4,
-            ease: 'power3.out'
-        });
+        if (number) revealObserver.observe(number);
+        if (title) revealObserver.observe(title);
+        if (subtitle) revealObserver.observe(subtitle);
     });
     
     // ================================
-    // ABOUT SECTION - LARGE TEXT
+    // ABOUT SECTION
     // ================================
     
-    gsap.from('.large-text', {
-        scrollTrigger: {
-            trigger: '.large-text',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out'
+    document.querySelectorAll('.large-text').forEach(el => {
+        revealObserver.observe(el);
+    });
+    
+    document.querySelectorAll('.journey-step').forEach(step => {
+        revealObserver.observe(step);
     });
     
     // ================================
-    // JOURNEY STEPS ANIMATION
+    // PROJECT CARDS
     // ================================
     
-    gsap.utils.toArray('.journey-step').forEach((step, index) => {
-        gsap.from(step, {
-            scrollTrigger: {
-                trigger: step,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out'
-        });
+    document.querySelectorAll('.project-card').forEach(card => {
+        revealObserver.observe(card);
     });
     
     // ================================
-    // PROJECT CARDS ANIMATION
+    // CONTACT LINKS
     // ================================
     
-    gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 80,
-            opacity: 0,
-            duration: 1,
-            delay: index * 0.2,
-            ease: 'power3.out'
-        });
+    document.querySelectorAll('.contact-link').forEach(link => {
+        revealObserver.observe(link);
     });
     
     // ================================
-    // HIGHLIGHT UNDERLINE ANIMATION
+    // HOW TO NAVIGATE
     // ================================
     
-    gsap.utils.toArray('.highlight').forEach(highlight => {
-        gsap.from(highlight, {
-            scrollTrigger: {
-                trigger: highlight,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            '--underline-width': '0%',
-            duration: 1.2,
-            ease: 'power2.out'
-        });
-    });
+    const navigateContent = document.querySelector('.navigate-content');
+    if (navigateContent) {
+        revealObserver.observe(navigateContent);
+    }
     
     // ================================
-    // HOW TO NAVIGATE SECTION
+    // NAVIGATION BEHAVIOR
     // ================================
     
-    gsap.from('.navigate-content h3', {
-        scrollTrigger: {
-            trigger: '.navigate-content',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    gsap.from('.navigate-content p', {
-        scrollTrigger: {
-            trigger: '.navigate-content',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: 'power3.out'
-    });
-    
-    // ================================
-    // CONTACT LINKS ANIMATION
-    // ================================
-    
-    gsap.utils.toArray('.contact-link').forEach((link, index) => {
-        gsap.from(link, {
-            scrollTrigger: {
-                trigger: link,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            x: -60,
-            opacity: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'power3.out'
-        });
-    });
-    
-    // ================================
-    // PARALLAX EFFECT (Light)
-    // ================================
-    
-    gsap.utils.toArray('.hero-title .word').forEach((word, index) => {
-        gsap.to(word, {
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: 1
-            },
-            y: (index + 1) * 30,
-            opacity: 0.5,
-            ease: 'none'
-        });
-    });
-    
-    // ================================
-    // FADE IN HERO BRIEF NOTE
-    // ================================
-    
-    gsap.from('.hero-brief-note', {
-        scrollTrigger: {
-            trigger: '.hero-brief-note',
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    });
-    
-    // ================================
-    // NAVIGATION BACKGROUND ON SCROLL
-    // ================================
-    
+    let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.nav');
+        const currentScroll = window.scrollY;
         
-        if (window.scrollY > 100) {
+        if (currentScroll > 100) {
             nav.style.backgroundColor = 'rgba(247, 245, 242, 0.98)';
-            nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            nav.style.boxShadow = '0 6px 40px rgba(44, 102, 110, 0.12)';
+            nav.style.backdropFilter = 'blur(12px)';
         } else {
             nav.style.backgroundColor = 'rgba(247, 245, 242, 0.95)';
             nav.style.boxShadow = 'none';
+            nav.style.backdropFilter = 'blur(6px)';
+        }
+        
+        // Hide/show nav on scroll
+        if (currentScroll > lastScroll && currentScroll > 500) {
+            nav.style.transform = 'translateY(-110%)';
+        } else {
+            nav.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Add smooth transition to nav
+    const nav = document.querySelector('.nav');
+    if (nav) {
+        nav.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+    
+    // ================================
+    // MOBILE MENU TOGGLE
+    // ================================
+    
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
+    
+    // ================================
+    // HERO PARALLAX
+    // ================================
+    
+    window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        if (hero && window.scrollY < window.innerHeight) {
+            const scrolled = window.scrollY;
+            const heroTitle = hero.querySelector('.hero-title');
+            
+            if (heroTitle) {
+                heroTitle.style.transform = `translateY(${scrolled * 0.4}px)`;
+                heroTitle.style.opacity = 1 - (scrolled / 1000);
+            }
         }
     });
     
     // ================================
-    // FOOTER FADE IN
+    // ACTIVE NAVIGATION
     // ================================
     
-    gsap.from('.footer', {
-        scrollTrigger: {
-            trigger: '.footer',
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
+    const sections = document.querySelectorAll('.section');
+    const navLinksArray = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 200;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinksArray.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+                link.style.color = 'var(--primary)';
+                link.style.fontWeight = '700';
+            } else {
+                link.style.color = 'var(--text-primary)';
+                link.style.fontWeight = '500';
+            }
+        });
     });
     
     // ================================
-    // REFRESH SCROLLTRIGGER ON LOAD
+    // GSAP ADVANCED ANIMATIONS
+    // ================================
+    
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        
+        // Section number rotation on scroll
+        gsap.utils.toArray('.section-number').forEach(num => {
+            gsap.from(num, {
+                scrollTrigger: {
+                    trigger: num,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                rotation: 720,
+                scale: 0,
+                duration: 1,
+                ease: 'back.out(2)'
+            });
+        });
+        
+        // Parallax on images
+        gsap.utils.toArray('.project-image').forEach(img => {
+            gsap.to(img, {
+                scrollTrigger: {
+                    trigger: img,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                },
+                y: -50,
+                ease: 'none'
+            });
+        });
+    }
+    
+    // ================================
+    // REFRESH ON LOAD & RESIZE
     // ================================
     
     window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
     });
-    
-    // ================================
-    // UPDATE ON RESIZE
-    // ================================
     
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            ScrollTrigger.refresh();
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
         }, 250);
     });
     
