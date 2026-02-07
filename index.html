@@ -11,10 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Styles - CORRECT ORDER -->
+    <!-- ================================
+         STYLES - OPTIMIZED LOADING ORDER
+         ================================ -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- NEW: Motion Effects CSS (add after your main styles) -->
+    <link rel="stylesheet" href="css/motion-effects.css">
+    
+    <!-- Three.js CDN - REQUIRED for 3D effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     
@@ -58,9 +66,13 @@
         <div class="scroll-progress"></div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ================================
+         HERO SECTION
+         Important: Class "hero" triggers 3D effects
+         ================================ -->
     <section id="hero" class="hero section">
         <div class="container">
+            <!-- Hero content wrapper ensures proper z-index layering -->
             <div class="hero-content">
                 <div class="hero-label">
                     <span>Portfolio</span>
@@ -94,7 +106,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ================================
+         ABOUT SECTION
+         Important: Class "about" triggers blob and floating shapes
+         ================================ -->
     <section id="about" class="about section">
         <div class="container">
             <div class="section-header">
@@ -108,6 +123,7 @@
                 <p class="section-subtitle">How I got here</p>
             </div>
             
+            <!-- About content wrapper ensures proper z-index -->
             <div class="about-content">
                 <div class="about-intro">
                     <p class="large-text">Mitasha Mehta is an advertising creative shaped by design, driven by strategy, and grounded in storytelling.</p>
@@ -150,7 +166,10 @@
         </div>
     </section>
 
-    <!-- Work Section -->
+    <!-- ================================
+         WORK SECTION
+         Important: Class "work" triggers floating shapes
+         ================================ -->
     <section id="work" class="work section">
         <div class="container">
             <div class="section-header">
@@ -159,6 +178,7 @@
                 <p class="section-subtitle">Projects structured as creative briefs</p>
             </div>
             
+            <!-- Projects grid has magnetic hover effects -->
             <div class="projects-grid">
                 
                 <!-- Project 1 -->
@@ -276,7 +296,10 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ================================
+         CONTACT SECTION
+         Important: contact-link class has magnetic hover effects
+         ================================ -->
     <section id="contact" class="contact section">
         <div class="container">
             <div class="section-header">
@@ -314,13 +337,80 @@
         </div>
     </footer>
 
-    <!-- Scripts - CORRECT ORDER AT END OF BODY -->
+    <!-- ================================
+         SCRIPTS - OPTIMIZED LOADING ORDER
+         CRITICAL: Load in this exact sequence
+         ================================ -->
+    
+    <!-- Step 1: External Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Step 2: Your Core Scripts -->
     <script src="js/loader.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Step 3: Motion Effects (load AFTER core scripts) -->
+    <script src="js/motion-effects.js"></script>
+    <script src="js/three-scene.js"></script>
+    
+    <!-- ================================
+         DEBUG HELPER (Optional - Remove in Production)
+         This will help verify everything loaded correctly
+         ================================ -->
+    <script>
+        // Wait for all scripts to load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                console.log('%c=== EFFECTS STATUS CHECK ===', 'color: #2C666E; font-size: 16px; font-weight: bold;');
+                
+                // Check script loading
+                console.log('Motion Effects:', window.motionEffects?.status || '❌ NOT LOADED');
+                console.log('Three.js Effects:', window.threeJSEffects?.status || '❌ NOT LOADED');
+                console.log('Three.js Library:', typeof THREE !== 'undefined' ? '✅ Loaded' : '❌ NOT LOADED');
+                
+                // Check if elements were created
+                const floatingShapes = document.querySelectorAll('.floating-shapes-container').length;
+                const particleCanvas = document.querySelector('.particle-canvas');
+                const hero3D = document.querySelector('.hero-3d-container');
+                const blob3D = document.querySelector('.blob-3d-container');
+                const heroBlob = document.querySelector('.hero-blob-bg');
+                
+                console.log('');
+                console.log('%c--- Elements Created ---', 'color: #D4A574; font-weight: bold;');
+                console.log('Floating Shapes Containers:', floatingShapes || '❌ None');
+                console.log('Particle Canvas:', particleCanvas ? '✅ Created' : '❌ Not Created');
+                console.log('Hero 3D Scene:', hero3D ? '✅ Created' : '❌ Not Created');
+                console.log('Morphing Blob:', blob3D ? '✅ Created' : '❌ Not Created');
+                console.log('Hero Blob Background:', heroBlob ? '✅ Created' : '❌ Not Created');
+                
+                // Performance check
+                console.log('');
+                console.log('%c--- Performance Info ---', 'color: #B7C4C2; font-weight: bold;');
+                console.log('Device Pixel Ratio:', window.devicePixelRatio);
+                console.log('Window Size:', window.innerWidth + 'x' + window.innerHeight);
+                console.log('Mobile Detection:', window.innerWidth < 768 ? 'YES (3D disabled)' : 'NO (3D enabled)');
+                
+                // Check for conflicts
+                const duplicateShapes = document.querySelectorAll('.floating-shapes-container').length;
+                const duplicateCanvas = document.querySelectorAll('.particle-canvas').length;
+                
+                if (duplicateShapes > 3) {
+                    console.warn('⚠️ WARNING: Too many floating-shapes-container elements detected (' + duplicateShapes + '). Possible duplicate initialization.');
+                }
+                if (duplicateCanvas > 1) {
+                    console.warn('⚠️ WARNING: Multiple particle-canvas elements detected (' + duplicateCanvas + '). Possible duplicate initialization.');
+                }
+                
+                console.log('');
+                console.log('%c✅ Status check complete!', 'color: #2C666E; font-size: 14px; font-weight: bold;');
+                console.log('If you see errors above, check the DEBUGGING_GUIDE.md file');
+                
+            }, 1500); // Wait 1.5 seconds for all effects to initialize
+        });
+    </script>
     
 </body>
 </html>
