@@ -262,10 +262,44 @@ body {
     color: var(--primary);
     margin-bottom: 3rem;
 }
+/* Handwritten background accent word */
+
+.word-with-accent {
+    position: relative;
+    display: inline-block;
+}
+
+.word-accent {
+    position: absolute;
+    top: -0.35em;
+    left: -0.25em;
+
+    font-family: 'Caveat', cursive;
+
+    font-size: 0.45em;   /* bigger */
+    color: #D4A574;
+
+    opacity: 0.85;       /* more visible */
+    transform: rotate(-12deg);
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.word-main {
+    position: relative;
+    z-index: 1;
+}
+
 
 .hero-title .word {
     display: block;
     overflow: hidden;
+}
+.hero-title {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-subtitle {
@@ -705,4 +739,11 @@ body {
     font-style: italic;
     font-size: 0.875rem;
     opacity: 0.6;
+}
+/* FORCE accent word styling */
+.hero-title .word-accent {
+    color: #D4A574 !important;
+    opacity: 1 !important;
+    font-size: 0.45em !important;
+    z-index: 0 !important;
 }
