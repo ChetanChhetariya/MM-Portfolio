@@ -1,472 +1,98 @@
 /* ================================
-   CLOUD DANCER COLOR INTEGRATION - FIXED VERSION
-   Better contrast, visible text, enhanced animations
+   ULTIMATE CLOUD DANCER DESIGN
+   Pantone Powdered Pastels Palette
+   Refined Animations & Typography
    ================================ */
 
-/* Cloud Dancer Color Variables */
+/* ================================
+   PANTONE POWDERED PASTELS PALETTE
+   Based on official Pantone 2026 combinations
+   ================================ */
+
 :root {
-    /* PANTONE Cloud Dancer 11-4201 */
+    /* PANTONE Cloud Dancer (Base) */
     --cloud-dancer: #EBE9E5;
     --cloud-dancer-light: #F5F4F2;
     --cloud-dancer-dark: #DDD9D2;
     
-    /* Your existing colors - ENHANCED */
-    --primary: #2C666E;
-    --primary-dark: #1a3d45;
-    --accent: #D4A574;
-    --accent-dark: #b8865a;
-    --secondary: #B7C4C2;
+    /* PANTONE Powdered Pastels - Accent Colors */
+    --lemon-icing: #F4E8C1;        /* 11-0515 - Soft yellow */
+    --nimbus-cloud: #C7D3D4;       /* 13-4108 - Blue-gray */
+    --raindrops-roses: #E8C9C5;    /* 11-1400 - Soft pink */
+    --ice-melt: #C9D8DD;           /* 13-4306 - Soft blue */
+    --peach-dust: #EDD1C2;         /* 12-1107 - Soft peach */
+    --almost-aqua: #B8D4D5;        /* 13-6006 - Soft aqua */
+    --orchid-tint: #D9C9D3;        /* 13-3802 - Soft lavender */
     
-    /* Text colors - MUCH DARKER for readability */
-    --text-primary: #1a1a1a;
-    --text-secondary: #2C2C2C;
-    --text-light: #4a4a4a;
+    /* Text Colors - Professional & Readable */
+    --text-primary: #2C2C2C;       /* Dark gray - main text */
+    --text-secondary: #4A4A4A;     /* Medium gray - secondary text */
+    --text-accent: #6B6B6B;        /* Light gray - subtle text */
+    
+    /* Primary Brand Colors (Dark accents) */
+    --primary-dark: #3D5C63;       /* Dark teal - titles */
+    --primary-medium: #5D7C83;     /* Medium teal - hover states */
+    --accent-warm: #C19A6B;        /* Warm tan - call to actions */
 }
 
 /* ================================
-   MAIN BACKGROUND
+   TYPOGRAPHY - REFINED & ELEGANT
+   Following Pantone's clean aesthetic
    ================================ */
 
 body {
-    background-color: var(--cloud-dancer) !important;
-    background: linear-gradient(180deg, 
-        var(--cloud-dancer-light) 0%, 
-        var(--cloud-dancer) 50%, 
-        var(--cloud-dancer-dark) 100%) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
     color: var(--text-primary) !important;
+    font-weight: 400;
 }
 
-/* ================================
-   SECTION BACKGROUNDS
-   ================================ */
-
-/* Hero Section - Cloud Dancer with subtle gradient */
-.hero {
-    background: linear-gradient(135deg, 
-        var(--cloud-dancer) 0%, 
-        var(--cloud-dancer-light) 100%) !important;
-    position: relative;
-}
-
-/* About Section - Slightly lighter */
-.about {
-    background: var(--cloud-dancer-light) !important;
-}
-
-/* Work Section - Cloud Dancer base */
-.work {
-    background: var(--cloud-dancer) !important;
-}
-
-/* Contact Section - Lighter variation */
-.contact {
-    background: var(--cloud-dancer-light) !important;
-}
-
-/* How to Navigate Section */
-.how-to-navigate {
-    background: var(--cloud-dancer-dark) !important;
-}
-
-/* Footer */
-.footer {
-    background: var(--cloud-dancer-dark) !important;
-}
-
-/* ================================
-   CRITICAL FIX: HERO TITLE VISIBILITY
-   Making "Mitasha Mehta" VERY visible
-   ================================ */
-
-/* Main hero title - DARK TEAL instead of white/gradient */
-.hero-title {
-    color: var(--primary-dark) !important;
-    text-shadow: none !important;
-    -webkit-text-fill-color: var(--primary-dark) !important;
-    background: none !important;
-    background-clip: unset !important;
-    -webkit-background-clip: unset !important;
-}
-
-/* Alternative: Keep gradient but make it DARK */
-.hero-title.gradient-style {
-    background: linear-gradient(135deg, 
-        var(--primary-dark) 0%, 
-        var(--primary) 50%, 
-        var(--accent-dark) 100%) !important;
-    background-size: 200% auto !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: gradientText 8s ease infinite !important;
-}
-
-/* Hero subtitle and tagline - DARKER */
-.hero-subtitle,
-.tagline {
-    color: var(--text-secondary) !important;
-}
-
-.hero-brief-note {
-    color: var(--text-light) !important;
-}
-
-/* Highlighted words in tagline - VISIBLE accent */
-.highlight {
-    color: var(--accent-dark) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* ================================
-   SECTION TITLES - HIGH CONTRAST
-   ================================ */
-
-.section-title {
-    color: var(--primary-dark) !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-.section-subtitle {
-    color: var(--text-secondary) !important;
-}
-
-.large-text {
-    color: var(--text-primary) !important;
-    font-weight: 500 !important;
-}
-
-/* ================================
-   NAVIGATION - ENHANCED VISIBILITY
-   ================================ */
-
-.nav {
-    background: rgba(235, 233, 229, 0.98) !important;
-    backdrop-filter: blur(12px) !important;
-    border-bottom: 2px solid rgba(44, 102, 110, 0.15) !important;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
-}
-
-.nav-logo a {
-    color: var(--primary-dark) !important;
-    font-weight: 700 !important;
-    /* Remove shimmer animation for better readability */
-    background: none !important;
-    -webkit-text-fill-color: var(--primary-dark) !important;
-}
-
-.nav-link {
-    color: var(--primary) !important;
-    font-weight: 500 !important;
-}
-
-.nav-link:hover {
-    color: var(--accent-dark) !important;
-}
-
-/* ================================
-   PROJECT CARDS - ENHANCED CONTRAST
-   ================================ */
-
-.project-card {
-    background: #FFFFFF !important;
-    box-shadow: 0 6px 30px rgba(44, 102, 110, 0.12) !important;
-    border: 2px solid rgba(44, 102, 110, 0.08) !important;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
-.project-card:hover {
-    background: #FFFFFF !important;
-    box-shadow: 0 15px 50px rgba(44, 102, 110, 0.2) !important;
-    border-color: var(--accent) !important;
-    transform: translateY(-12px) scale(1.02) !important;
-}
-
-.project-title {
-    color: var(--primary-dark) !important;
-    font-weight: 600 !important;
-}
-
-.project-category {
-    color: var(--accent-dark) !important;
-}
-
-.project-overlay {
-    background: rgba(44, 102, 110, 0.92) !important;
-}
-
-.view-project {
-    color: #FFFFFF !important;
-    font-weight: 600 !important;
-    border: 2px solid #FFFFFF !important;
-}
-
-/* ================================
-   JOURNEY STEPS - BETTER CONTRAST
-   ================================ */
-
-.journey-step {
-    background: #FFFFFF !important;
-    border: 2px solid rgba(44, 102, 110, 0.12) !important;
-    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.08) !important;
-}
-
-.journey-step:hover {
-    border-color: var(--accent) !important;
-    box-shadow: 0 8px 30px rgba(44, 102, 110, 0.15) !important;
-}
-
-.step-number {
-    color: var(--accent-dark) !important;
-    font-weight: 700 !important;
-}
-
-.journey-step h3 {
-    color: var(--primary-dark) !important;
-}
-
-.journey-step p {
-    color: var(--text-secondary) !important;
-}
-
-/* ================================
-   CONTACT LINKS - ENHANCED
-   ================================ */
-
-.contact-link {
-    background: #FFFFFF !important;
-    border: 3px solid var(--primary) !important;
-    color: var(--primary) !important;
-    font-weight: 600 !important;
-    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.1) !important;
-}
-
-.contact-link:hover {
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-    border-color: var(--primary) !important;
-    box-shadow: 0 8px 30px rgba(44, 102, 110, 0.2) !important;
-    transform: translateY(-4px) !important;
-}
-
-.link-label {
-    color: var(--accent) !important;
-    font-weight: 700 !important;
-}
-
-.contact-link:hover .link-label {
-    color: var(--accent-dark) !important;
-}
-
-/* ================================
-   HERO LABEL - BETTER VISIBILITY
-   ================================ */
-
-.hero-label {
-    background: rgba(212, 165, 116, 0.2) !important;
-    border: 2px solid rgba(212, 165, 116, 0.4) !important;
-    color: var(--primary-dark) !important;
-    font-weight: 600 !important;
-    box-shadow: 0 2px 10px rgba(212, 165, 116, 0.15) !important;
-}
-
-.hero-label .year {
-    color: var(--accent-dark) !important;
-}
-
-/* ================================
-   SECTION NUMBERS - ENHANCED
-   ================================ */
-
-.section-number {
-    color: var(--accent) !important;
-    opacity: 1 !important;
-    font-weight: 700 !important;
-    text-shadow: 0 2px 4px rgba(212, 165, 116, 0.2) !important;
-}
-
-/* ================================
-   SCROLL INDICATOR - VISIBLE
-   ================================ */
-
-.scroll-indicator {
-    color: var(--primary) !important;
-    font-weight: 500 !important;
-}
-
-.scroll-line {
-    background: var(--primary) !important;
-    box-shadow: 0 0 10px rgba(44, 102, 110, 0.3) !important;
-}
-
-/* ================================
-   FLOATING SHAPES - MORE VISIBLE
-   ================================ */
-
-.floating-shape svg {
-    opacity: 0.25 !important;
-    filter: drop-shadow(0 0 8px rgba(44, 102, 110, 0.4)) !important;
-}
-
-.floating-shape:hover svg {
-    opacity: 0.4 !important;
-}
-
-/* ================================
-   PARTICLE CANVAS - MORE VISIBLE
-   ================================ */
-
-.particle-canvas {
-    opacity: 0.6 !important;
-}
-
-/* ================================
-   3D ELEMENTS - ENHANCED
-   ================================ */
-
-.hero-blob-bg {
-    background: radial-gradient(circle, 
-        rgba(212, 165, 116, 0.15) 0%, 
-        transparent 70%) !important;
-}
-
-/* Make 3D wireframes more visible */
-.hero-3d-container canvas {
-    opacity: 0.4 !important;
-}
-
-.blob-3d-container canvas {
-    opacity: 0.3 !important;
-}
-
-/* ================================
-   MODAL - ENHANCED READABILITY
-   ================================ */
-
-.project-modal .modal-content {
-    background: var(--cloud-dancer-light) !important;
-    border: 2px solid rgba(44, 102, 110, 0.15) !important;
-}
-
-.modal-project-title {
-    color: var(--primary-dark) !important;
-}
-
-.brief-section h4 {
-    color: var(--primary) !important;
-}
-
-.brief-section p {
-    color: var(--text-secondary) !important;
-}
-
-/* ================================
-   FOOTER - READABLE TEXT
-   ================================ */
-
-.footer {
-    background: var(--cloud-dancer-dark) !important;
-    border-top: 2px solid rgba(44, 102, 110, 0.15) !important;
-}
-
-.footer-content p {
-    color: var(--text-primary) !important;
-}
-
-.footer-note {
-    color: var(--text-light) !important;
-}
-
-/* ================================
-   SCROLL PROGRESS BAR
-   ================================ */
-
-.scroll-progress {
-    background: var(--accent) !important;
-    box-shadow: 0 0 10px var(--accent) !important;
-}
-
-/* ================================
-   ENSURE ALL TEXT IS READABLE
-   ================================ */
-
+/* Headings - Clean hierarchy */
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
     color: var(--primary-dark) !important;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
 }
 
 p {
     color: var(--text-secondary) !important;
-}
-
-a {
-    color: var(--primary) !important;
-}
-
-a:hover {
-    color: var(--accent-dark) !important;
+    font-weight: 400;
 }
 
 /* ================================
-   LOADER - CLOUD DANCER THEME
+   MAIN BACKGROUNDS
+   Layered Powdered Pastels
    ================================ */
 
-.page-loader {
-    background: var(--cloud-dancer) !important;
+body {
+    background: linear-gradient(180deg, 
+        var(--cloud-dancer-light) 0%, 
+        var(--cloud-dancer) 50%, 
+        var(--cloud-dancer-dark) 100%) !important;
 }
 
-.loader-text {
-    color: var(--primary-dark) !important;
-}
-
-/* ================================
-   MOBILE MENU TOGGLE - VISIBLE
-   ================================ */
-
-.mobile-menu-toggle span {
-    background: var(--primary) !important;
-}
-
-/* ================================
-   HOVER EFFECTS - ENHANCED
-   ================================ */
-
-/* Add glow effect on hover for better visibility */
-.project-card:hover,
-.contact-link:hover,
-.journey-step:hover {
-    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.25) !important;
-}
-
-/* ================================
-   WORD ACCENTS - VISIBLE
-   ================================ */
-
-.word-accent,
-.title-accent {
-    color: var(--accent) !important;
-    opacity: 1 !important;
-}
-
-/* ================================
-   HOW TO NAVIGATE SECTION
-   ================================ */
-
-.how-to-navigate {
-    background: var(--cloud-dancer-dark) !important;
-}
-
-.navigate-content h3 {
-    color: var(--primary-dark) !important;
-}
-
-.navigate-content p {
-    color: var(--text-primary) !important;
-}
-
-/* ================================
-   SUBTLE TEXTURE - MORE VISIBLE
-   ================================ */
-
+/* Subtle pastel texture overlay */
 body::before {
     content: '';
     position: fixed;
@@ -475,69 +101,620 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(44, 102, 110, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, var(--ice-melt) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, var(--peach-dust) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, var(--orchid-tint) 0%, transparent 50%);
+    opacity: 0.15;
     pointer-events: none;
     z-index: 0;
+    mix-blend-mode: multiply;
 }
 
 /* ================================
-   ANIMATION ENHANCEMENTS
+   SECTION BACKGROUNDS
    ================================ */
 
-/* Make gradient animation work on dark text */
-@keyframes gradientText {
+.hero {
+    background: linear-gradient(135deg, 
+        var(--cloud-dancer) 0%, 
+        var(--cloud-dancer-light) 100%) !important;
+}
+
+.about {
+    background: linear-gradient(180deg,
+        var(--cloud-dancer-light) 0%,
+        rgba(201, 216, 221, 0.2) 100%) !important; /* Ice Melt tint */
+}
+
+.work {
+    background: linear-gradient(180deg,
+        rgba(184, 212, 213, 0.15) 0%, /* Almost Aqua tint */
+        var(--cloud-dancer) 100%) !important;
+}
+
+.contact {
+    background: linear-gradient(180deg,
+        var(--cloud-dancer) 0%,
+        rgba(217, 201, 211, 0.2) 100%) !important; /* Orchid Tint */
+}
+
+.how-to-navigate {
+    background: linear-gradient(135deg,
+        var(--cloud-dancer-dark) 0%,
+        rgba(199, 211, 212, 0.3) 100%) !important; /* Nimbus Cloud tint */
+}
+
+.footer {
+    background: var(--cloud-dancer-dark) !important;
+    border-top: 3px solid rgba(61, 92, 99, 0.1);
+}
+
+/* ================================
+   HERO SECTION - REFINED
+   ================================ */
+
+.hero-title {
+    color: var(--primary-dark) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--primary-dark) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.tagline {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+    max-width: 800px;
+}
+
+.highlight {
+    color: var(--accent-warm) !important;
+    font-weight: 600 !important;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--peach-dust), var(--lemon-icing));
+    opacity: 0.5;
+}
+
+/* Hero Label - Pastel accent */
+.hero-label {
+    background: linear-gradient(135deg, 
+        rgba(244, 232, 193, 0.4), /* Lemon Icing */
+        rgba(237, 209, 194, 0.4)) !important; /* Peach Dust */
+    border: 2px solid rgba(193, 154, 107, 0.3) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(244, 232, 193, 0.2);
+}
+
+.hero-brief-note {
+    color: var(--text-accent) !important;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+}
+
+/* ================================
+   NAVIGATION - ELEGANT
+   ================================ */
+
+.nav {
+    background: rgba(235, 233, 229, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 2px solid rgba(61, 92, 99, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+.nav-logo a {
+    color: var(--primary-dark) !important;
+    font-weight: 800 !important;
+    font-size: 1.5rem;
+    background: none !important;
+    -webkit-text-fill-color: var(--primary-dark) !important;
+    transition: color 0.4s ease;
+}
+
+.nav-logo a:hover {
+    color: var(--accent-warm) !important;
+}
+
+.nav-link {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--ice-melt), var(--almost-aqua));
+    transition: width 0.4s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-medium) !important;
+}
+
+/* ================================
+   PROJECT CARDS - POWDERED PASTELS
+   SLOWER, MORE ELEGANT ANIMATIONS
+   ================================ */
+
+.project-card {
+    background: #FFFFFF !important;
+    border: 2px solid transparent !important;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(61, 92, 99, 0.08) !important;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important; /* SLOWER */
+    position: relative;
+}
+
+/* Pastel gradient borders on hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+        var(--ice-melt),
+        var(--peach-dust),
+        var(--orchid-tint));
+        
+        /* add this line */
+     mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    background: #FFFFFF !important;
+    box-shadow: 0 20px 60px rgba(184, 212, 213, 0.25) !important;
+    transform: translateY(-16px) scale(1.02) !important;
+}
+
+.project-title {
+    color: var(--primary-dark) !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-category {
+    color: var(--accent-warm) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-overlay {
+    background: linear-gradient(135deg,
+        rgba(61, 92, 99, 0.95),
+        rgba(93, 124, 131, 0.95)) !important;
+    transition: opacity 0.5s ease;
+}
+
+.view-project {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(244, 232, 193, 0.6) !important;
+    border-radius: 50px;
+    background: rgba(244, 232, 193, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.view-project:hover {
+    background: var(--lemon-icing);
+    color: var(--primary-dark) !important;
+    border-color: var(--lemon-icing) !important;
+}
+
+/* ================================
+   JOURNEY STEPS - PASTEL ACCENTS
+   SLOWER ANIMATIONS
+   ================================ */
+
+.journey-step {
+    background: #FFFFFF !important;
+    border: 2px solid transparent !important;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 30px rgba(61, 92, 99, 0.06) !important;
+    transition: all 0.8s ease !important; /* SLOWER */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pastel accent strip */
+.journey-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg,
+        var(--ice-melt),
+        var(--almost-aqua),
+        var(--orchid-tint));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.journey-step:hover::before {
+    opacity: 1;
+}
+
+.journey-step:hover {
+    border-color: var(--ice-melt) !important;
+    box-shadow: 0 12px 50px rgba(201, 216, 221, 0.2) !important;
+    transform: translateX(8px);
+}
+
+/* Pastel number badges */
+.step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--peach-dust), var(--lemon-icing));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+}
+
+.journey-step h3 {
+    color: var(--primary-dark) !important;
+    margin-bottom: 1rem;
+}
+
+.journey-step p {
+    color: var(--text-secondary) !important;
+    line-height: 1.8;
+}
+
+/* Stagger animation - MUCH SLOWER */
+.journey-step {
+    animation: breathe 12s ease-in-out infinite; /* SLOWER from 6s */
+}
+
+.journey-step:nth-child(1) { animation-delay: 0s; }
+.journey-step:nth-child(2) { animation-delay: 3s; }
+.journey-step:nth-child(3) { animation-delay: 6s; }
+.journey-step:nth-child(4) { animation-delay: 9s; }
+
+@keyframes breathe {
     0%, 100% {
-        background-position: 0% 50%;
+        transform: scale(1);
     }
     50% {
-        background-position: 100% 50%;
+        transform: scale(1.01); /* SUBTLER */
     }
 }
 
 /* ================================
-   ACCESSIBILITY & CONTRAST
+   CONTACT LINKS - PASTEL ACCENTS
    ================================ */
 
-/* Ensure minimum contrast ratio of 7:1 */
-.hero-title,
-.section-title,
-.project-title,
-.journey-step h3 {
+.contact-link {
+    background: #FFFFFF !important;
+    border: 3px solid var(--primary-dark) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 600 !important;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(61, 92, 99, 0.1) !important;
+    transition: all 0.5s ease !important; /* SLOWER */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pastel gradient on hover */
+.contact-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        var(--ice-melt),
+        var(--almost-aqua));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.contact-link:hover::before {
+    opacity: 0.3;
+}
+
+.contact-link:hover {
+    border-color: var(--ice-melt) !important;
+    box-shadow: 0 12px 50px rgba(184, 212, 213, 0.3) !important;
+    transform: translateY(-6px) scale(1.02);
+}
+
+.link-label {
+    color: var(--accent-warm) !important;
     font-weight: 700 !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
 }
 
 /* ================================
-   RESPONSIVE - MOBILE ADJUSTMENTS
+   SECTION HEADERS - REFINED
+   ================================ */
+
+.section-title {
+    color: var(--primary-dark) !important;
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary) !important;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.section-number {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, 
+        var(--peach-dust), 
+        var(--lemon-icing));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.large-text {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    line-height: 1.6;
+    color: var(--text-primary) !important;
+    font-weight: 400;
+}
+
+/* ================================
+   SCROLL INDICATOR - ELEGANT
+   ================================ */
+
+.scroll-indicator {
+    color: var(--primary-dark) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.scroll-line {
+    background: linear-gradient(180deg, 
+        var(--ice-melt), 
+        var(--almost-aqua)) !important;
+    box-shadow: 0 0 15px rgba(201, 216, 221, 0.4);
+}
+
+/* ================================
+   FLOATING SHAPES - SLOWER, SUBTLE
+   ================================ */
+
+.floating-shape svg {
+    opacity: 0.2 !important;
+    filter: drop-shadow(0 0 10px rgba(184, 212, 213, 0.3)) !important;
+    transition: opacity 0.8s ease;
+}
+
+/* Slower float animations */
+@keyframes float1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(20px, -20px) rotate(60deg); /* SLOWER rotation */
+    }
+    66% {
+        transform: translate(-15px, 15px) rotate(120deg);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translate(-30px, 30px) rotate(90deg) scale(1.1); /* SLOWER */
+    }
+}
+
+@keyframes float3 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(15px, 20px) rotate(45deg); /* SLOWER */
+    }
+    50% {
+        transform: translate(30px, -15px) rotate(90deg);
+    }
+    75% {
+        transform: translate(-20px, -30px) rotate(135deg);
+    }
+}
+
+/* ================================
+   PARTICLES - SLOWER, MORE SUBTLE
+   ================================ */
+
+.particle-canvas {
+    opacity: 0.4 !important;
+}
+
+/* ================================
+   3D ELEMENTS - SLOWER ROTATION
+   ================================ */
+
+.hero-3d-container canvas {
+    opacity: 0.3 !important;
+}
+
+.blob-3d-container canvas {
+    opacity: 0.25 !important;
+}
+
+/* ================================
+   MODAL - PASTEL THEME
+   ================================ */
+
+.project-modal .modal-content {
+    background: var(--cloud-dancer-light) !important;
+    border: 2px solid rgba(199, 211, 212, 0.3);
+    border-radius: 20px;
+}
+
+.modal-project-title {
+    color: var(--primary-dark) !important;
+}
+
+.brief-section {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--ice-melt);
+    margin-bottom: 1.5rem;
+}
+
+.brief-section h4 {
+    color: var(--primary-dark) !important;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.brief-section p {
+    color: var(--text-secondary) !important;
+    line-height: 1.7;
+}
+
+/* ================================
+   SCROLL PROGRESS BAR
+   ================================ */
+
+.scroll-progress {
+    background: linear-gradient(90deg, 
+        var(--peach-dust), 
+        var(--lemon-icing)) !important;
+    box-shadow: 0 0 15px rgba(237, 209, 194, 0.5);
+}
+
+/* ================================
+   REFINED SPACING
+   ================================ */
+
+.section {
+    padding: 120px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ================================
+   RESPONSIVE REFINEMENTS
    ================================ */
 
 @media (max-width: 768px) {
-    .hero-title {
-        color: var(--primary-dark) !important;
-        font-size: clamp(2rem, 8vw, 4rem) !important;
+    .section {
+        padding: 80px 0;
     }
     
-    .project-card {
-        border-width: 2px !important;
+    .hero-title {
+        font-size: 3rem !important;
+    }
+    
+    .section-number {
+        font-size: 3rem;
+    }
+    
+    .journey-step {
+        padding: 2rem;
     }
 }
 
 /* ================================
-   FINAL POLISH
+   ACCESSIBILITY
    ================================ */
 
-/* Add subtle animation to key elements */
-.hero-title,
-.section-title,
-.project-card {
-    transition: all 0.3s ease !important;
+/* Ensure all animations can be disabled */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
-/* Ensure content layers are above backgrounds */
+/* ================================
+   CONTENT LAYERS - ENSURE VISIBILITY
+   ================================ */
+
 .hero-content,
 .about-content,
 .projects-grid,
 .contact-content {
     position: relative !important;
     z-index: 10 !important;
+}
+
+/* ================================
+   WORD ACCENTS - PASTEL
+   ================================ */
+
+.word-accent,
+.title-accent {
+    color: var(--accent-warm) !important;
+    opacity: 0.8;
+    font-style: italic;
+    font-weight: 400;
 }
