@@ -1,0 +1,253 @@
+/* ================================
+   CLOUD DANCER COLOR INTEGRATION
+   Add this to your css/style.css file
+   ================================ */
+
+/* Cloud Dancer Color Variables */
+:root {
+    /* PANTONE Cloud Dancer 11-4201 */
+    --cloud-dancer: #EBE9E5;
+    --cloud-dancer-light: #F5F4F2;
+    --cloud-dancer-dark: #DDD9D2;
+    
+    /* Your existing colors */
+    --primary: #2C666E;
+    --accent: #D4A574;
+    --secondary: #B7C4C2;
+    
+    /* Updated background colors */
+    --bg-primary: #EBE9E5;      /* Cloud Dancer */
+    --bg-secondary: #F5F4F2;    /* Lighter variation */
+    --bg-tertiary: #DDD9D2;     /* Slightly darker */
+}
+
+/* ================================
+   MAIN BACKGROUND
+   ================================ */
+
+body {
+    background-color: var(--cloud-dancer);
+    background: linear-gradient(180deg, 
+        var(--cloud-dancer-light) 0%, 
+        var(--cloud-dancer) 50%, 
+        var(--cloud-dancer-dark) 100%);
+    color: #2C2C2C;
+}
+
+/* ================================
+   SECTION BACKGROUNDS
+   ================================ */
+
+/* Hero Section - Pure Cloud Dancer */
+.hero {
+    background: var(--cloud-dancer);
+    position: relative;
+}
+
+/* About Section - Slightly lighter */
+.about {
+    background: var(--cloud-dancer-light);
+}
+
+/* Work Section - Cloud Dancer base */
+.work {
+    background: var(--cloud-dancer);
+}
+
+/* Contact Section - Lighter variation */
+.contact {
+    background: var(--cloud-dancer-light);
+}
+
+/* How to Navigate Section */
+.how-to-navigate {
+    background: var(--cloud-dancer-dark);
+}
+
+/* Footer */
+.footer {
+    background: var(--cloud-dancer-dark);
+}
+
+/* ================================
+   ENHANCED CONTRASTS
+   (to ensure text is readable on light background)
+   ================================ */
+
+/* Make sure text is readable */
+.hero-title,
+.section-title,
+.large-text {
+    color: var(--primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation */
+.nav {
+    background: rgba(235, 233, 229, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(44, 102, 110, 0.1);
+}
+
+/* Project Cards - subtle elevation on Cloud Dancer */
+.project-card {
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.08);
+    border: 1px solid rgba(44, 102, 110, 0.05);
+}
+
+.project-card:hover {
+    background: #FFFFFF;
+    box-shadow: 0 12px 40px rgba(44, 102, 110, 0.15);
+}
+
+/* Journey Steps */
+.journey-step {
+    background: #FFFFFF;
+    border: 1px solid rgba(44, 102, 110, 0.08);
+    box-shadow: 0 2px 12px rgba(44, 102, 110, 0.06);
+}
+
+/* Contact Links */
+.contact-link {
+    background: #FFFFFF;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.contact-link:hover {
+    background: var(--primary);
+    color: #FFFFFF;
+}
+
+/* ================================
+   MODAL BACKGROUNDS
+   ================================ */
+
+.project-modal .modal-content {
+    background: var(--cloud-dancer-light);
+}
+
+.project-modal .modal-overlay {
+    background: rgba(44, 102, 110, 0.85);
+}
+
+/* ================================
+   SUBTLE TEXTURE OVERLAY (Optional)
+   Adds a very subtle grain to match Pantone aesthetic
+   ================================ */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(44, 102, 110, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content stays above texture */
+.section {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================
+   LOADER WITH CLOUD DANCER
+   ================================ */
+
+.page-loader {
+    background: var(--cloud-dancer);
+}
+
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+   ================================ */
+
+@media (max-width: 768px) {
+    body {
+        background: var(--cloud-dancer);
+    }
+}
+
+/* ================================
+   ACCENT ELEMENTS
+   To make the accent color pop on Cloud Dancer
+   ================================ */
+
+.highlight {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.hero-label {
+    background: rgba(212, 165, 116, 0.12);
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    color: var(--primary);
+}
+
+.section-number {
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+/* ================================
+   SCROLL INDICATOR
+   ================================ */
+
+.scroll-indicator {
+    color: var(--primary);
+}
+
+.scroll-line {
+    background: var(--primary);
+}
+
+/* ================================
+   FLOATING SHAPES COLORS
+   Adjust for better visibility on Cloud Dancer
+   ================================ */
+
+.floating-shape svg {
+    opacity: 0.15 !important;
+}
+
+.particle-canvas {
+    opacity: 0.4 !important;
+}
+
+/* ================================
+   3D ELEMENTS ADJUSTMENT
+   ================================ */
+
+.hero-blob-bg {
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+}
+
+/* ================================
+   ENSURE HIGH CONTRAST
+   ================================ */
+
+/* Make sure all headings are readable */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary);
+}
+
+/* Body text */
+p, .tagline {
+    color: #3C3C3C;
+}
+
+/* Links */
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--accent);
+}
