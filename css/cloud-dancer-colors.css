@@ -1,6 +1,6 @@
 /* ================================
-   CLOUD DANCER COLOR INTEGRATION
-   Add this to your css/style.css file
+   CLOUD DANCER COLOR INTEGRATION - FIXED VERSION
+   Better contrast, visible text, enhanced animations
    ================================ */
 
 /* Cloud Dancer Color Variables */
@@ -10,15 +10,17 @@
     --cloud-dancer-light: #F5F4F2;
     --cloud-dancer-dark: #DDD9D2;
     
-    /* Your existing colors */
+    /* Your existing colors - ENHANCED */
     --primary: #2C666E;
+    --primary-dark: #1a3d45;
     --accent: #D4A574;
+    --accent-dark: #b8865a;
     --secondary: #B7C4C2;
     
-    /* Updated background colors */
-    --bg-primary: #EBE9E5;      /* Cloud Dancer */
-    --bg-secondary: #F5F4F2;    /* Lighter variation */
-    --bg-tertiary: #DDD9D2;     /* Slightly darker */
+    /* Text colors - MUCH DARKER for readability */
+    --text-primary: #1a1a1a;
+    --text-secondary: #2C2C2C;
+    --text-light: #4a4a4a;
 }
 
 /* ================================
@@ -26,115 +28,443 @@
    ================================ */
 
 body {
-    background-color: var(--cloud-dancer);
+    background-color: var(--cloud-dancer) !important;
     background: linear-gradient(180deg, 
         var(--cloud-dancer-light) 0%, 
         var(--cloud-dancer) 50%, 
-        var(--cloud-dancer-dark) 100%);
-    color: #2C2C2C;
+        var(--cloud-dancer-dark) 100%) !important;
+    color: var(--text-primary) !important;
 }
 
 /* ================================
    SECTION BACKGROUNDS
    ================================ */
 
-/* Hero Section - Pure Cloud Dancer */
+/* Hero Section - Cloud Dancer with subtle gradient */
 .hero {
-    background: var(--cloud-dancer);
+    background: linear-gradient(135deg, 
+        var(--cloud-dancer) 0%, 
+        var(--cloud-dancer-light) 100%) !important;
     position: relative;
 }
 
 /* About Section - Slightly lighter */
 .about {
-    background: var(--cloud-dancer-light);
+    background: var(--cloud-dancer-light) !important;
 }
 
 /* Work Section - Cloud Dancer base */
 .work {
-    background: var(--cloud-dancer);
+    background: var(--cloud-dancer) !important;
 }
 
 /* Contact Section - Lighter variation */
 .contact {
-    background: var(--cloud-dancer-light);
+    background: var(--cloud-dancer-light) !important;
 }
 
 /* How to Navigate Section */
 .how-to-navigate {
-    background: var(--cloud-dancer-dark);
+    background: var(--cloud-dancer-dark) !important;
 }
 
 /* Footer */
 .footer {
-    background: var(--cloud-dancer-dark);
+    background: var(--cloud-dancer-dark) !important;
 }
 
 /* ================================
-   ENHANCED CONTRASTS
-   (to ensure text is readable on light background)
+   CRITICAL FIX: HERO TITLE VISIBILITY
+   Making "Mitasha Mehta" VERY visible
    ================================ */
 
-/* Make sure text is readable */
-.hero-title,
-.section-title,
+/* Main hero title - DARK TEAL instead of white/gradient */
+.hero-title {
+    color: var(--primary-dark) !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: var(--primary-dark) !important;
+    background: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+}
+
+/* Alternative: Keep gradient but make it DARK */
+.hero-title.gradient-style {
+    background: linear-gradient(135deg, 
+        var(--primary-dark) 0%, 
+        var(--primary) 50%, 
+        var(--accent-dark) 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: gradientText 8s ease infinite !important;
+}
+
+/* Hero subtitle and tagline - DARKER */
+.hero-subtitle,
+.tagline {
+    color: var(--text-secondary) !important;
+}
+
+.hero-brief-note {
+    color: var(--text-light) !important;
+}
+
+/* Highlighted words in tagline - VISIBLE accent */
+.highlight {
+    color: var(--accent-dark) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ================================
+   SECTION TITLES - HIGH CONTRAST
+   ================================ */
+
+.section-title {
+    color: var(--primary-dark) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.section-subtitle {
+    color: var(--text-secondary) !important;
+}
+
 .large-text {
-    color: var(--primary);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
 }
 
-/* Navigation */
+/* ================================
+   NAVIGATION - ENHANCED VISIBILITY
+   ================================ */
+
 .nav {
-    background: rgba(235, 233, 229, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(44, 102, 110, 0.1);
+    background: rgba(235, 233, 229, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 2px solid rgba(44, 102, 110, 0.15) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Project Cards - subtle elevation on Cloud Dancer */
+.nav-logo a {
+    color: var(--primary-dark) !important;
+    font-weight: 700 !important;
+    /* Remove shimmer animation for better readability */
+    background: none !important;
+    -webkit-text-fill-color: var(--primary-dark) !important;
+}
+
+.nav-link {
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+}
+
+.nav-link:hover {
+    color: var(--accent-dark) !important;
+}
+
+/* ================================
+   PROJECT CARDS - ENHANCED CONTRAST
+   ================================ */
+
 .project-card {
-    background: #FFFFFF;
-    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.08);
-    border: 1px solid rgba(44, 102, 110, 0.05);
+    background: #FFFFFF !important;
+    box-shadow: 0 6px 30px rgba(44, 102, 110, 0.12) !important;
+    border: 2px solid rgba(44, 102, 110, 0.08) !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .project-card:hover {
-    background: #FFFFFF;
-    box-shadow: 0 12px 40px rgba(44, 102, 110, 0.15);
+    background: #FFFFFF !important;
+    box-shadow: 0 15px 50px rgba(44, 102, 110, 0.2) !important;
+    border-color: var(--accent) !important;
+    transform: translateY(-12px) scale(1.02) !important;
 }
 
-/* Journey Steps */
+.project-title {
+    color: var(--primary-dark) !important;
+    font-weight: 600 !important;
+}
+
+.project-category {
+    color: var(--accent-dark) !important;
+}
+
+.project-overlay {
+    background: rgba(44, 102, 110, 0.92) !important;
+}
+
+.view-project {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+/* ================================
+   JOURNEY STEPS - BETTER CONTRAST
+   ================================ */
+
 .journey-step {
-    background: #FFFFFF;
-    border: 1px solid rgba(44, 102, 110, 0.08);
-    box-shadow: 0 2px 12px rgba(44, 102, 110, 0.06);
+    background: #FFFFFF !important;
+    border: 2px solid rgba(44, 102, 110, 0.12) !important;
+    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.08) !important;
 }
 
-/* Contact Links */
+.journey-step:hover {
+    border-color: var(--accent) !important;
+    box-shadow: 0 8px 30px rgba(44, 102, 110, 0.15) !important;
+}
+
+.step-number {
+    color: var(--accent-dark) !important;
+    font-weight: 700 !important;
+}
+
+.journey-step h3 {
+    color: var(--primary-dark) !important;
+}
+
+.journey-step p {
+    color: var(--text-secondary) !important;
+}
+
+/* ================================
+   CONTACT LINKS - ENHANCED
+   ================================ */
+
 .contact-link {
-    background: #FFFFFF;
-    border: 2px solid var(--primary);
-    color: var(--primary);
+    background: #FFFFFF !important;
+    border: 3px solid var(--primary) !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 20px rgba(44, 102, 110, 0.1) !important;
 }
 
 .contact-link:hover {
-    background: var(--primary);
-    color: #FFFFFF;
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 8px 30px rgba(44, 102, 110, 0.2) !important;
+    transform: translateY(-4px) !important;
+}
+
+.link-label {
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+}
+
+.contact-link:hover .link-label {
+    color: var(--accent-dark) !important;
 }
 
 /* ================================
-   MODAL BACKGROUNDS
+   HERO LABEL - BETTER VISIBILITY
+   ================================ */
+
+.hero-label {
+    background: rgba(212, 165, 116, 0.2) !important;
+    border: 2px solid rgba(212, 165, 116, 0.4) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 10px rgba(212, 165, 116, 0.15) !important;
+}
+
+.hero-label .year {
+    color: var(--accent-dark) !important;
+}
+
+/* ================================
+   SECTION NUMBERS - ENHANCED
+   ================================ */
+
+.section-number {
+    color: var(--accent) !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(212, 165, 116, 0.2) !important;
+}
+
+/* ================================
+   SCROLL INDICATOR - VISIBLE
+   ================================ */
+
+.scroll-indicator {
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+}
+
+.scroll-line {
+    background: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(44, 102, 110, 0.3) !important;
+}
+
+/* ================================
+   FLOATING SHAPES - MORE VISIBLE
+   ================================ */
+
+.floating-shape svg {
+    opacity: 0.25 !important;
+    filter: drop-shadow(0 0 8px rgba(44, 102, 110, 0.4)) !important;
+}
+
+.floating-shape:hover svg {
+    opacity: 0.4 !important;
+}
+
+/* ================================
+   PARTICLE CANVAS - MORE VISIBLE
+   ================================ */
+
+.particle-canvas {
+    opacity: 0.6 !important;
+}
+
+/* ================================
+   3D ELEMENTS - ENHANCED
+   ================================ */
+
+.hero-blob-bg {
+    background: radial-gradient(circle, 
+        rgba(212, 165, 116, 0.15) 0%, 
+        transparent 70%) !important;
+}
+
+/* Make 3D wireframes more visible */
+.hero-3d-container canvas {
+    opacity: 0.4 !important;
+}
+
+.blob-3d-container canvas {
+    opacity: 0.3 !important;
+}
+
+/* ================================
+   MODAL - ENHANCED READABILITY
    ================================ */
 
 .project-modal .modal-content {
-    background: var(--cloud-dancer-light);
+    background: var(--cloud-dancer-light) !important;
+    border: 2px solid rgba(44, 102, 110, 0.15) !important;
 }
 
-.project-modal .modal-overlay {
-    background: rgba(44, 102, 110, 0.85);
+.modal-project-title {
+    color: var(--primary-dark) !important;
+}
+
+.brief-section h4 {
+    color: var(--primary) !important;
+}
+
+.brief-section p {
+    color: var(--text-secondary) !important;
 }
 
 /* ================================
-   SUBTLE TEXTURE OVERLAY (Optional)
-   Adds a very subtle grain to match Pantone aesthetic
+   FOOTER - READABLE TEXT
+   ================================ */
+
+.footer {
+    background: var(--cloud-dancer-dark) !important;
+    border-top: 2px solid rgba(44, 102, 110, 0.15) !important;
+}
+
+.footer-content p {
+    color: var(--text-primary) !important;
+}
+
+.footer-note {
+    color: var(--text-light) !important;
+}
+
+/* ================================
+   SCROLL PROGRESS BAR
+   ================================ */
+
+.scroll-progress {
+    background: var(--accent) !important;
+    box-shadow: 0 0 10px var(--accent) !important;
+}
+
+/* ================================
+   ENSURE ALL TEXT IS READABLE
+   ================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-dark) !important;
+}
+
+p {
+    color: var(--text-secondary) !important;
+}
+
+a {
+    color: var(--primary) !important;
+}
+
+a:hover {
+    color: var(--accent-dark) !important;
+}
+
+/* ================================
+   LOADER - CLOUD DANCER THEME
+   ================================ */
+
+.page-loader {
+    background: var(--cloud-dancer) !important;
+}
+
+.loader-text {
+    color: var(--primary-dark) !important;
+}
+
+/* ================================
+   MOBILE MENU TOGGLE - VISIBLE
+   ================================ */
+
+.mobile-menu-toggle span {
+    background: var(--primary) !important;
+}
+
+/* ================================
+   HOVER EFFECTS - ENHANCED
+   ================================ */
+
+/* Add glow effect on hover for better visibility */
+.project-card:hover,
+.contact-link:hover,
+.journey-step:hover {
+    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.25) !important;
+}
+
+/* ================================
+   WORD ACCENTS - VISIBLE
+   ================================ */
+
+.word-accent,
+.title-accent {
+    color: var(--accent) !important;
+    opacity: 1 !important;
+}
+
+/* ================================
+   HOW TO NAVIGATE SECTION
+   ================================ */
+
+.how-to-navigate {
+    background: var(--cloud-dancer-dark) !important;
+}
+
+.navigate-content h3 {
+    color: var(--primary-dark) !important;
+}
+
+.navigate-content p {
+    color: var(--text-primary) !important;
+}
+
+/* ================================
+   SUBTLE TEXTURE - MORE VISIBLE
    ================================ */
 
 body::before {
@@ -145,109 +475,69 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(44, 102, 110, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(44, 102, 110, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
 
-/* Ensure content stays above texture */
-.section {
-    position: relative;
-    z-index: 1;
-}
-
 /* ================================
-   LOADER WITH CLOUD DANCER
+   ANIMATION ENHANCEMENTS
    ================================ */
 
-.page-loader {
-    background: var(--cloud-dancer);
-}
-
-/* ================================
-   RESPONSIVE ADJUSTMENTS
-   ================================ */
-
-@media (max-width: 768px) {
-    body {
-        background: var(--cloud-dancer);
+/* Make gradient animation work on dark text */
+@keyframes gradientText {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
 }
 
 /* ================================
-   ACCENT ELEMENTS
-   To make the accent color pop on Cloud Dancer
+   ACCESSIBILITY & CONTRAST
    ================================ */
 
-.highlight {
-    color: var(--accent);
-    font-weight: 600;
-}
-
-.hero-label {
-    background: rgba(212, 165, 116, 0.12);
-    border: 1px solid rgba(212, 165, 116, 0.25);
-    color: var(--primary);
-}
-
-.section-number {
-    color: var(--accent);
-    opacity: 0.7;
+/* Ensure minimum contrast ratio of 7:1 */
+.hero-title,
+.section-title,
+.project-title,
+.journey-step h3 {
+    font-weight: 700 !important;
 }
 
 /* ================================
-   SCROLL INDICATOR
+   RESPONSIVE - MOBILE ADJUSTMENTS
    ================================ */
 
-.scroll-indicator {
-    color: var(--primary);
-}
-
-.scroll-line {
-    background: var(--primary);
+@media (max-width: 768px) {
+    .hero-title {
+        color: var(--primary-dark) !important;
+        font-size: clamp(2rem, 8vw, 4rem) !important;
+    }
+    
+    .project-card {
+        border-width: 2px !important;
+    }
 }
 
 /* ================================
-   FLOATING SHAPES COLORS
-   Adjust for better visibility on Cloud Dancer
+   FINAL POLISH
    ================================ */
 
-.floating-shape svg {
-    opacity: 0.15 !important;
+/* Add subtle animation to key elements */
+.hero-title,
+.section-title,
+.project-card {
+    transition: all 0.3s ease !important;
 }
 
-.particle-canvas {
-    opacity: 0.4 !important;
-}
-
-/* ================================
-   3D ELEMENTS ADJUSTMENT
-   ================================ */
-
-.hero-blob-bg {
-    background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
-}
-
-/* ================================
-   ENSURE HIGH CONTRAST
-   ================================ */
-
-/* Make sure all headings are readable */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--primary);
-}
-
-/* Body text */
-p, .tagline {
-    color: #3C3C3C;
-}
-
-/* Links */
-a {
-    color: var(--primary);
-}
-
-a:hover {
-    color: var(--accent);
+/* Ensure content layers are above backgrounds */
+.hero-content,
+.about-content,
+.projects-grid,
+.contact-content {
+    position: relative !important;
+    z-index: 10 !important;
 }
